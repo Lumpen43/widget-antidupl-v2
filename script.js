@@ -1,8 +1,12 @@
 define(["jquery"], function ($) {
   var CustomWidget = function () {
-    var self = this,
-      system = self.system(),
-      langs = self.langs;
+    try {
+      console.log("[Антидубль v2] Загрузка...");
+      var self = this,
+        system = self.system(),
+        langs = self.langs;
+      console.log("[Антидубль v2] system.area:", system ? system.area : "undefined");
+      console.log("[Антидубль v2] langs загружен:", !!langs);
 
     // =============================================================
     // API Core — используем AMOCRM.call() (авто-авторизация)
@@ -429,6 +433,10 @@ define(["jquery"], function ($) {
     };
 
     return this;
+    } catch (e) {
+      console.error("[Антидубль v2] КРИТИЧЕСКАЯ ОШИБКА:", e.message, e.stack);
+      return this;
+    }
   };
   return CustomWidget;
 });
