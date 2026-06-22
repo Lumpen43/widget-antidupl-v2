@@ -1,0 +1,31 @@
+{
+  "widget": {
+    "name": "Антидубль v2",
+    "description": "Поиск и объединение дубликатов контактов в amoCRM. Сравнение по телефону, email и дополнительным полям.",
+    "short_description": "Поиск и склейка дублей",
+    "tour_description": "Виджет сканирует контакты и находит дубликаты по телефону, email или Telegram ID. Поддерживает автоматическое слияние через API v4."
+  },
+  "settings": {
+    "compare_phone": "Сравнивать по телефону",
+    "compare_email": "Сравнивать по email",
+    "custom_field_code": "Код доп. поля (Telegram ID)",
+    "auto_merge": "Автоматическое слияние",
+    "save_btn": "Сохранить",
+    "cancel_btn": "Отмена",
+    "saved": "Настройки сохранены"
+  },
+  "interface": {
+    "scan_button": "Найти дубликаты",
+    "scanning": "Сканирование контактов...",
+    "found_groups": "Найдено групп дублей:",
+    "master_label": "главный",
+    "merge_btn": "Слить",
+    "close_btn": "Закрыть",
+    "no_duplicates": "Дубликаты не найдены",
+    "error_occurred": "Произошла ошибка",
+    "merge_success": "Слияние выполнено успешно",
+    "settings_btn": "Настройки",
+    "not_configured": "Укажите настройки сравнения",
+    "merge_api_success": "Контакты объединены через API"
+  }
+}
