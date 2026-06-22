@@ -20,16 +20,29 @@
       "type": "text",
       "required": true
     },
+    "compare_phone": {
+      "name": "settings.compare_phone",
+      "type": "select",
+      "required": false,
+      "values": [
+        {"value": "N", "name": "Нет"},
+        {"value": "Y", "name": "Да"}
+      ]
+    },
+    "compare_email": {
+      "name": "settings.compare_email",
+      "type": "select",
+      "required": false,
+      "values": [
+        {"value": "N", "name": "Нет"},
+        {"value": "Y", "name": "Да"}
+      ]
+    },
     "custom_field_code": {
       "name": "settings.custom_field_code",
       "type": "text",
       "required": false,
       "default": "TELEGRAM_USERNAME_ID"
-    },
-    "settings_ui": {
-      "name": "settings.settings_ui",
-      "type": "custom",
-      "required": false
     }
   },
   "tour": {

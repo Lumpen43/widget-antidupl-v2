@@ -223,24 +223,15 @@ define(["jquery"], function ($) {
 
         if (!s.api_token) {
           html +=
-            '<p style="color:#888;margin:0 0 10px;">Укажите API токен в настройках</p>' +
-            '<button class="adu2-settings-btn" style="width:100%;padding:8px;font-size:13px;' +
-            'cursor:pointer;border:1px solid #ddd;border-radius:4px;background:#f5f5f5;color:#555;">' +
-            langs.interface.settings_btn + '</button>';
+            '<p style="color:#888;margin:0 0 10px;">Укажите API токен в настройках виджета</p>';
         } else if (s.compare_phone !== "Y" && s.compare_email !== "Y" && !s.custom_field_code) {
           html +=
-            '<p style="color:#888;margin:0 0 10px;">' + langs.interface.not_configured + '</p>' +
-            '<button class="adu2-settings-btn" style="width:100%;padding:8px;font-size:13px;' +
-            'cursor:pointer;border:1px solid #ddd;border-radius:4px;background:#f5f5f5;color:#555;">' +
-            langs.interface.settings_btn + '</button>';
+            '<p style="color:#888;margin:0 0 10px;">Включите сравнение по телефону/email в настройках</p>';
         } else {
           html +=
             '<button class="adu2-scan-btn" style="width:100%;padding:8px;font-size:13px;cursor:pointer;' +
-            'border:none;border-radius:4px;background:#4CAF50;color:#fff;margin-bottom:6px;">' +
-            langs.interface.scan_button + '</button>' +
-            '<button class="adu2-settings-btn" style="width:100%;padding:8px;font-size:13px;' +
-            'cursor:pointer;border:1px solid #ddd;border-radius:4px;background:#f5f5f5;color:#555;">' +
-            langs.interface.settings_btn + '</button>';
+            'border:none;border-radius:4px;background:#4CAF50;color:#fff;">' +
+            langs.interface.scan_button + '</button>';
         }
 
         html += '</div>';
@@ -250,7 +241,6 @@ define(["jquery"], function ($) {
         if ($body.length) $body.html(html);
 
         $(".adu2-scan-btn").off().on("click", function () { doScan($(this)); });
-        $(".adu2-settings-btn").off().on("click", function () { openSettingsModal(); });
       }
 
       // =============================================================
@@ -344,66 +334,6 @@ define(["jquery"], function ($) {
       }
 
       // =============================================================
-      // Настройки (модальное окно)
-      // =============================================================
-
-      function openSettingsModal() {
-        var s = self.get_settings();
-        var comparePhone = s.compare_phone === "Y";
-        var compareEmail = s.compare_email === "Y";
-        var autoMerge = s.auto_merge === "Y";
-        var apiToken = s.api_token || "";
-        var customFieldCode = s.custom_field_code || "TELEGRAM_USERNAME_ID";
-
-        var html =
-          '<div class="adu2-overlay"></div>' +
-          '<div class="adu2-modal adu2-settings-modal">' +
-          '<h3 class="adu2-modal-title">Настройки</h3>' +
-          '<div class="adu2-settings-body">' +
-          '<div class="adu2-field-group"><label>API токен *</label>' +
-          '<input type="text" class="adu2-token-input" value="' + apiToken.replace(/"/g, "&quot;") + '"></div>' +
-          '<label class="adu2-checkbox-label"><input type="checkbox" class="adu2-chk-phone"' +
-          (comparePhone ? ' checked' : '') + '> ' + langs.settings.compare_phone + '</label>' +
-          '<label class="adu2-checkbox-label"><input type="checkbox" class="adu2-chk-email"' +
-          (compareEmail ? ' checked' : '') + '> ' + langs.settings.compare_email + '</label>' +
-          '<div class="adu2-field-group"><label>' + langs.settings.custom_field_code + '</label>' +
-          '<input type="text" class="adu2-field-input" value="' + customFieldCode.replace(/"/g, "&quot;") + '"></div>' +
-          '<label class="adu2-checkbox-label"><input type="checkbox" class="adu2-chk-auto"' +
-          (autoMerge ? ' checked' : '') + '> ' + langs.settings.auto_merge + '</label>' +
-          '</div>' +
-          '<div class="adu2-modal-footer">' +
-          '<button class="adu2-save-btn" style="background:#1976d2;color:#fff;border:none;padding:8px 20px;border-radius:4px;cursor:pointer;font-size:13px;">' +
-          langs.settings.save_btn + '</button>' +
-          '<button class="adu2-close-btn" style="padding:8px 20px;border:1px solid #ddd;border-radius:4px;background:#fff;cursor:pointer;font-size:13px;margin-left:6px;">' +
-          langs.settings.cancel_btn + '</button>' +
-          '</div></div>';
-
-        $("body").append(html);
-
-        $(".adu2-close-btn, .adu2-overlay").on("click", function () {
-          $(".adu2-modal, .adu2-overlay").remove();
-        });
-
-        $(".adu2-save-btn").on("click", function () {
-          var newToken = $(".adu2-token-input").val() || "";
-          if (!newToken) {
-            notify("API токен обязателен", true);
-            return;
-          }
-          self.set_settings({
-            api_token: newToken,
-            compare_phone: $(".adu2-chk-phone").is(":checked") ? "Y" : "N",
-            compare_email: $(".adu2-chk-email").is(":checked") ? "Y" : "N",
-            custom_field_code: $(".adu2-field-input").val() || "",
-            auto_merge: $(".adu2-chk-auto").is(":checked") ? "Y" : "N"
-          });
-          notify(langs.settings.saved, false);
-          $(".adu2-modal, .adu2-overlay").remove();
-          if (system.area === "ccard") initCardUI();
-        });
-      }
-
-      // =============================================================
       // Callbacks виджета
       // =============================================================
 
@@ -427,7 +357,7 @@ define(["jquery"], function ($) {
         },
 
         settings: function () {
-          openSettingsModal();
+          // Настройки рендерятся amoCRM автоматически из manifest.json
           return true;
         },
 

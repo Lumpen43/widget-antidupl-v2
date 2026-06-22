@@ -10,10 +10,6 @@
     "compare_phone": "Сравнивать по телефону",
     "compare_email": "Сравнивать по email",
     "custom_field_code": "Код доп. поля (Telegram ID)",
-    "settings_ui": "Настройки сравнения",
-    "auto_merge": "Автоматическое слияние",
-    "save_btn": "Сохранить",
-    "cancel_btn": "Отмена",
     "saved": "Настройки сохранены"
   },
   "interface": {
