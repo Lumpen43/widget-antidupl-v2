@@ -15,6 +15,11 @@
   },
   "locations": ["settings", "ccard-1"],
   "settings": {
+    "api_token": {
+      "name": "settings.api_token",
+      "type": "text",
+      "required": true
+    },
     "custom_field_code": {
       "name": "settings.custom_field_code",
       "type": "text",

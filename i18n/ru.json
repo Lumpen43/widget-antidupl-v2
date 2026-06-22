@@ -6,9 +6,11 @@
     "tour_description": "Виджет сканирует контакты и находит дубликаты по телефону, email или Telegram ID. Поддерживает автоматическое слияние через API v4."
   },
   "settings": {
+    "api_token": "API токен для доступа к amoCRM",
     "compare_phone": "Сравнивать по телефону",
     "compare_email": "Сравнивать по email",
     "custom_field_code": "Код доп. поля (Telegram ID)",
+    "settings_ui": "Настройки сравнения",
     "auto_merge": "Автоматическое слияние",
     "save_btn": "Сохранить",
     "cancel_btn": "Отмена",
