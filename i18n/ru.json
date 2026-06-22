@@ -7,8 +7,6 @@
   },
   "settings": {
     "api_token": "API токен для доступа к amoCRM",
-    "compare_phone": "Сравнивать по телефону",
-    "compare_email": "Сравнивать по email",
     "custom_field_code": "Код доп. поля (Telegram ID)",
     "saved": "Настройки сохранены"
   },

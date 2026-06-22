@@ -224,9 +224,6 @@ define(["jquery"], function ($) {
         if (!s.api_token) {
           html +=
             '<p style="color:#888;margin:0 0 10px;">Укажите API токен в настройках виджета</p>';
-        } else if (s.compare_phone !== "Y" && s.compare_email !== "Y" && !s.custom_field_code) {
-          html +=
-            '<p style="color:#888;margin:0 0 10px;">Включите сравнение по телефону/email в настройках</p>';
         } else {
           html +=
             '<button class="adu2-scan-btn" style="width:100%;padding:8px;font-size:13px;cursor:pointer;' +
@@ -254,8 +251,8 @@ define(["jquery"], function ($) {
         $btn.prop("disabled", true).text(langs.interface.scanning);
 
         var opts = {
-          comparePhone: s.compare_phone === "Y",
-          compareEmail: s.compare_email === "Y",
+          comparePhone: true,
+          compareEmail: true,
           customFieldCode: s.custom_field_code || ""
         };
 
