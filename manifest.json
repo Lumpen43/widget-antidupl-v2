@@ -7,26 +7,13 @@
     "interface_version": 2,
     "init_once": false,
     "locale": ["ru"],
-    "installation": true,
+    "installation": false,
     "support": {
       "link": "https://github.com/Lumpen43/widget-antidupl-v2",
       "email": "epifan1337@mail.ru"
     }
   },
-  "locations": ["settings", "ccard-1"],
-  "settings": {
-    "api_token": {
-      "name": "settings.api_token",
-      "type": "text",
-      "required": true
-    },
-    "custom_field_code": {
-      "name": "settings.custom_field_code",
-      "type": "text",
-      "required": false,
-      "default": "TELEGRAM_USERNAME_ID"
-    }
-  },
+  "locations": ["ccard-1"],
   "tour": {
     "is_tour": false,
     "tour_images": {
