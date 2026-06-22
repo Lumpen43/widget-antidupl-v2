@@ -15,24 +15,14 @@
   },
   "locations": ["settings", "ccard-1"],
   "settings": {
-    "compare_phone": {
-      "name": "settings.compare_phone",
-      "type": "custom",
-      "required": false
-    },
-    "compare_email": {
-      "name": "settings.compare_email",
-      "type": "custom",
-      "required": false
-    },
     "custom_field_code": {
       "name": "settings.custom_field_code",
       "type": "text",
       "required": false,
       "default": "TELEGRAM_USERNAME_ID"
     },
-    "auto_merge": {
-      "name": "settings.auto_merge",
+    "settings_ui": {
+      "name": "settings.settings_ui",
       "type": "custom",
       "required": false
     }

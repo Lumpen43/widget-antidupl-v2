@@ -209,7 +209,7 @@ define(["jquery"], function ($) {
         '<div style="font-weight:600;font-size:14px;margin-bottom:10px;color:#333;">' +
         langs.interface.scan_button + '</div>';
 
-      if (!s.compare_phone && !s.compare_email && !s.custom_field_code) {
+      if (s.compare_phone !== "Y" && s.compare_email !== "Y" && !s.custom_field_code) {
         html +=
           '<p style="color:#888;margin:0 0 10px;">' + langs.interface.not_configured + '</p>' +
           '<button class="adu2-settings-btn" style="width:100%;padding:8px;font-size:13px;' +
@@ -245,8 +245,8 @@ define(["jquery"], function ($) {
       $btn.prop("disabled", true).text(langs.interface.scanning);
 
       var opts = {
-        comparePhone: s.compare_phone === true || s.compare_phone === "Y",
-        compareEmail: s.compare_email === true || s.compare_email === "Y",
+        comparePhone: s.compare_phone === "Y",
+        compareEmail: s.compare_email === "Y",
         customFieldCode: s.custom_field_code || ""
       };
 
@@ -331,9 +331,9 @@ define(["jquery"], function ($) {
 
     function openSettingsModal() {
       var s = getSettings();
-      var comparePhone = s.compare_phone === true || s.compare_phone === "Y";
-      var compareEmail = s.compare_email === true || s.compare_email === "Y";
-      var autoMerge = s.auto_merge === true || s.auto_merge === "Y";
+      var comparePhone = s.compare_phone === "Y";
+      var compareEmail = s.compare_email === "Y";
+      var autoMerge = s.auto_merge === "Y";
       var customFieldCode = s.custom_field_code || "TELEGRAM_USERNAME_ID";
 
       var html =
